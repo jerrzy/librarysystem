@@ -49,13 +49,13 @@ public class SystemController implements ControllerInterface {
 	}
 
 	@Override
-	public void AddBookCopy(String isbn) {
-
+	public void AddBookCopy(String isbn) throws LibrarySystemException {
+		new BookCopyService().addBookCopy(isbn);
 	}
 
 	@Override
-	public void checkoutBook(String memberId, String isbn) {
-
+	public void checkoutBook(String memberId, String isbn) throws LibrarySystemException{
+		new BookCopyService().checkoutBook(memberId,isbn);
 	}
 
 

@@ -15,8 +15,8 @@ public interface ControllerInterface {
 
 	public List<String> allBookIds();
 
-	void AddBookCopy(String isbn);
+	void AddBookCopy(String isbn) throws LibrarySystemException;
 
-    void checkoutBook(String memberId, String isbn);
+    void checkoutBook(String memberId, String isbn) throws LibrarySystemException;
 	
 }

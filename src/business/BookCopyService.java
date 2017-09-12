@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class BookCopyService{
 
-    public void AddBookCopy(String isbn) throws LibrarySystemException {
+    public void addBookCopy(String isbn) throws LibrarySystemException {
         if (isEmpty(isbn)) {
             throw new LibrarySystemException("isbn can not be empty!");
         }
