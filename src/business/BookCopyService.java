@@ -54,12 +54,14 @@ public class BookCopyService{
 
         BookCopy bookCopy = book.getNextAvailableCopy();
 
-//        bookCopy.changeAvailability();
+        bookCopy.changeAvailability();
 
         Date dateOfCheckout = new Date();
         Date dueDate = Date.from(LocalDateTime.from(dateOfCheckout.toInstant()).plus(book.getMaxCheckoutLength(), ChronoUnit.DAYS).toInstant(ZoneOffset.of("-06:00")));
 
-        new MemberService().checkout(bookCopy, new Date(), dueDate);
+        member.getCheckoutRecord().addCheckoutRecordEntry(bookCopy,dateOfCheckout,dueDate);
+
+        da.saveNewMember(member);
 
         da.saveBook(book);
     }
