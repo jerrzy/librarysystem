@@ -26,6 +26,12 @@ public class SystemController implements ControllerInterface {
 		currentAuth = map.get(id).getAuthorization();
 		
 	}
+
+	@Override
+	public void addMember(LibraryMember member) {
+
+	}
+
 	@Override
 	public List<String> allMemberIds() {
 		DataAccess da = new DataAccessFacade();
@@ -41,6 +47,16 @@ public class SystemController implements ControllerInterface {
 		retval.addAll(da.readBooksMap().keySet());
 		return retval;
 	}
-	
-	
+
+	@Override
+	public void AddBookCopy(String isbn) {
+
+	}
+
+	@Override
+	public void checkoutBook(String memberId, String isbn) {
+
+	}
+
+
 }
