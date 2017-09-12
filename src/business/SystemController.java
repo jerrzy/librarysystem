@@ -50,11 +50,18 @@ public class SystemController implements ControllerInterface {
 
 	@Override
 	public void AddBookCopy(String isbn) throws LibrarySystemException {
+		if(currentAuth == null || (currentAuth != Auth.ADMIN && currentAuth != Auth.BOTH)){
+			throw new LibrarySystemException("no right!");
+		}
+
 		new BookCopyService().addBookCopy(isbn);
 	}
 
 	@Override
 	public void checkoutBook(String memberId, String isbn) throws LibrarySystemException{
+		if(currentAuth == null || (currentAuth != Auth.LIBRARIAN && currentAuth != Auth.BOTH)){
+			throw new LibrarySystemException("no right!");
+		}
 		new BookCopyService().checkoutBook(memberId,isbn);
 	}
 
